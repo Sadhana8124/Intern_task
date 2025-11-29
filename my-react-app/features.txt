@@ -1,0 +1,36 @@
+1)Authentication & Authorization
+*Role-based access:
+    Admin (can manage projects, assign tasks, view progress).
+     Interns (can view tasks, submit work).
+
+2)User Management
+*Admin can view all registered interns.
+*Interns register/login and get their dashboard.
+
+3)Project Management
+*Admin can create and manage projects.
+*Projects are linked with tasks.
+*Project list is shown to admins (with access control).
+
+4)Task Management
+*Admin can assign tasks to interns under a project.
+*Task creation form includes:
+   Title
+   Description
+   Deadline
+   Assigned intern
+*Tasks stored with project + intern relationship.
+*Interns can see assigned tasks in their dashboard.
+
+5)Task Submission
+*Interns can submit tasks with:
+*File upload (file path saved in DB).
+*Status + timestamp.
+*Submissions go directly to the Task Submission list (no manual approval step).
+*Admin can view submitted tasks in their dashboard.
+
+6)Progress Tracking
+*Admin can view intern progress with charts:
+*Bar Chart → Completed vs Pending tasks per intern.
+*Donut Pie Chart → Distribution of completed tasks among interns.
+*Charts update dynamically based on submissions.

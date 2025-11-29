@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* Highlight animation for submissions */
+@keyframes highlight-pulse {
+  0%, 100% {
+    background-color: rgb(199 210 254);
+  }
+  50% {
+    background-color: rgb(165 180 252);
+  }
+}
+
+.highlight-submission {
+  animation: highlight-pulse 1s ease-in-out 2;
+}
+
+/* Animation delays for login page background */
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-1000 {
+  animation-delay: 1000ms;
+}
