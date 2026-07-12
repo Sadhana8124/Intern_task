@@ -5,6 +5,8 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { ClipboardList, Calendar, Users, FileText } from "lucide-react"; // icons
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 const Tasks = () => {
   const { projectId } = useParams();
 
@@ -30,7 +32,7 @@ const Tasks = () => {
     const fetchInterns = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/users/interns/",
+          `${API_URL}/users/interns/`,
           axiosConfig
         );
         setInterns(res.data);
@@ -58,7 +60,7 @@ const Tasks = () => {
         assigned_to: Number(formData.assigned_to),
         project_id: Number(projectId),
       };
-      await axios.post("http://localhost:8000/admin/tasks", dataToSend, axiosConfig);
+      await axios.post(`${API_URL}/admin/tasks`, dataToSend, axiosConfig);
       setMessage("✅ Task created successfully!");
       setFormData({
         title: "",

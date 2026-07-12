@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import AdminSidebar from "../components/AdminSidebar";
 import axios from "axios";
 import { FiFolderPlus, FiFolder } from "react-icons/fi";
+
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
 const Projects = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -27,14 +30,14 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/projects", axiosConfig);
+        const res = await axios.get(`${API_URL}/projects`, axiosConfig);
         setProjects(res.data.projects || res.data);
       } catch (err) {
         console.error("Error fetching projects:", err);
       }};
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/projects/users_by_role", axiosConfig);
+        const res = await axios.get(`${API_URL}/projects/users_by_role`, axiosConfig);
         const allUsers = [...res.data.admins, ...res.data.interns];
         setUsers(allUsers);
       } catch (err) {
@@ -66,7 +69,7 @@ const Projects = () => {
       role: m.role.toLowerCase() // only "leader" or "member"
     }))};
     try {
-      const res = await axios.post("http://localhost:8000/projects", payload, axiosConfig);
+      const res = await axios.post(`${API_URL}/projects`, payload, axiosConfig);
       alert("✅ Project created successfully!");
       setProjects([...projects, res.data]);
       setFormData({ name: "", description: "", members: [] });

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
 function TaskSubmissionForm({ taskId, internId }) {
   const [files, setFiles] = useState([]);
 
@@ -16,7 +18,7 @@ function TaskSubmissionForm({ taskId, internId }) {
     files.forEach(file => formData.append("uploaded_files", file));
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/task-submissions/", {
+      const response = await fetch(`${API_URL}/task-submissions/`, {
         method: "POST",
         body: formData
       });
