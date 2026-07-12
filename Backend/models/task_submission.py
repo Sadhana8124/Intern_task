@@ -11,7 +11,7 @@ class TaskSubmission(Base):
     intern_id = Column(Integer, ForeignKey("users.id"))
     status = Column(String(225), default="pending")
     submitted_at = Column(DateTime, server_default=func.now())
-    file_path = Column(String, nullable=False)  # ✅ Added column
+    file_path = Column(String(255), nullable=False)  # ✅ Added column
     project_id = Column(Integer, ForeignKey("projects.id"))
 
     task = relationship("Task", back_populates="submissions")

@@ -15,7 +15,7 @@ class Task(Base):
     created_at = Column(DateTime, server_default=func.now())
     is_completed = Column(Boolean, default=False)
     submission_file=Column(String, nullable=True)
-    submission_date = Column(DateTime, nullable=True)
+    submission_file = Column(String(255), nullable=True)
     project_id = Column(Integer, ForeignKey("projects.id"))
     project = relationship("Project", back_populates="tasks")
     

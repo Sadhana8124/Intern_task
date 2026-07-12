@@ -30,7 +30,7 @@ class ProjectMember(Base):
     id = Column(Integer, primary_key=True, index=True)
     project_id = Column(Integer, ForeignKey("projects.id", ondelete="CASCADE"))
     user_id = Column(Integer, ForeignKey("users.id"))
-    role = Column(String, nullable=False)  # "leader" or "member"
+    role = Column(String(50), nullable=False)   # "leader" or "member"
 
     project = relationship("Project", back_populates="members")
     user = relationship("User", back_populates="project_members")
