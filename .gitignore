@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+*.log
+
+__pycache__/
+*.pyc
+venv/
+venu/
+env/
+.venv/
+*.egg-info/
+Backend/sql_app.db
